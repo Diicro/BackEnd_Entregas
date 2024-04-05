@@ -1,0 +1,1 @@
+[{"id":1,"title":"carne","description":"carne de cerdo","price":"$3800","thumbnail":"aqui va la imagen","code":5,"stock":28},{"id":2,"title":"uva ","description":"fruta roja","price":"$200","thumbnail":"Aqui va la imagen","code":9,"stock":225},{"id":4,"title":"manzana ","description":"fruta verde","price":"$2200","thumbnail":"Aqui va la imagen","code":8,"stock":80}]
