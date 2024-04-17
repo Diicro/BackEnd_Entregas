@@ -1,6 +1,6 @@
 import fs from "fs";
 
-class ProductManager {
+export class ProductManager {
   constructor() {
     this.products = [];
     this.path = "./products.txt";
@@ -8,7 +8,7 @@ class ProductManager {
 
   addProduct(title, description, price, thumbnail, code, stock) {
     let id;
-    this.products < 1 ? (id = 0) : (id = this.products.length);
+    this.products < 1 ? (id = -1) : (id = this.products.length - 1);
 
     const product = {
       id: id + 1,
@@ -32,7 +32,7 @@ class ProductManager {
     }
   }
 
-  getProducts() {
+  get getProducts() {
     const getProducts = JSON.parse(fs.readFileSync(this.path, "utf-8"));
     return getProducts;
   }
@@ -91,15 +91,6 @@ class ProductManager {
 
 const producto1 = new ProductManager();
 
-producto1.addProduct("pera", "fruta verde", "$2300", "Aqui va la imagen");
-producto1.addProduct(
-  "carne",
-  "carne de cerdo",
-  "$3800",
-  "aqui va la imagen",
-  5,
-  28
-);
 producto1.addProduct(
   "manzana ",
   "fruta roja",
@@ -108,7 +99,7 @@ producto1.addProduct(
   5,
   20
 );
-producto1.addProduct("uva ", "fruta roja", "$150", "Aqui va la imagen", 9, 250);
+producto1.addProduct("uva ", "fruta roja", "$150", "Aqui va la imagen", 6, 250);
 producto1.addProduct(
   "naranja ",
   "fruta naranja",
@@ -125,50 +116,52 @@ producto1.addProduct(
   8,
   10
 );
-console.log(producto1.getProducts());
 
-console.log(producto1.getProductById(1));
-console.log(producto1.getProductById(2));
-console.log(producto1.getProductById(3));
-console.log(producto1.getProductById(4));
-console.log(producto1.getProductById(9));
-producto1.updateProduct(
-  2,
-  "uva ",
-  "fruta roja",
-  "$200",
+producto1.addProduct(
+  "banana ",
+  "fruta amarilla",
+  "$2300",
   "Aqui va la imagen",
   9,
-  225
+  14
 );
-producto1.updateProduct(
-  3,
-  "naranja",
-  "fruta naranja",
-  "$2800",
-  "Aqui va la imagen",
-  5,
-  500
-);
-producto1.updateProduct(
-  3,
-  "naranja",
-  "fruta naranja",
-  "$2800",
-  "Aqui va la imagen",
-  7
-);
-producto1.updateProduct(
-  4,
-  "manzana ",
+producto1.addProduct(
+  "kiwi ",
   "fruta verde",
-  "$2200",
+  "$1800",
   "Aqui va la imagen",
-  8,
-  80
+  10,
+  12
 );
-console.log(producto1.getProducts());
-producto1.deleteProduct(3);
-
-console.log(producto1.getProducts());
-producto1.deleteProduct(8);
+producto1.addProduct(
+  "durazno ",
+  "fruta naranja",
+  "$2100",
+  "Aqui va la imagen",
+  11,
+  19
+);
+producto1.addProduct(
+  "guayaba ",
+  "fruta amarilla",
+  "$2050",
+  "Aqui va la imagen",
+  12,
+  8
+);
+producto1.addProduct(
+  "pera ",
+  "fruta verde",
+  "$2300",
+  "Aqui va la imagen",
+  13,
+  8
+);
+producto1.addProduct(
+  "aguacate ",
+  "fruta verde",
+  "$2600",
+  "Aqui va la imagen",
+  14,
+  15
+);
